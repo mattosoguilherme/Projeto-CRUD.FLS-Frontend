@@ -8,7 +8,7 @@ let idEdition = 0;
 let nome = document.getElementById("nome");
 let imgURL = document.getElementById("imgURL");
 let genero = document.getElementById("genero");
-let nota = document.getElementById("notas");
+let nota = document.getElementById("nota");
 let pesquisar = document.getElementById("pesquisar");
 
 const getFilmes = async () => {
@@ -63,7 +63,7 @@ const submitForm = async (event) => {
   };
 
   if (edition) {
-    editFilme(filme, idEdition);
+    putFilme(filme, idEdition);
   } else {
     createFilme(filme);
   }
@@ -132,7 +132,7 @@ const editarFilmes = async (_id) => {
   edition = true;
   idEdition = _id;
 
-  const filme = await getFilmesById(_id);
+  const filme = await getFilmeById(_id);
 
   nome.value = filme.nome;
   imgURL.value = filme.imgURL;
