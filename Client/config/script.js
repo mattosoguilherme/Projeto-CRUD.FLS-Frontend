@@ -37,8 +37,8 @@ const getFilmes = async () => {
             <h5 class="card-title">${filme.nome}</h5>
             <span class="badge bg-dark">${filme.genero}</span>
             <p class="card-text">NOTA: <span class="badge bg-dark">${filme.nota}</span></p>
-            <button type="button" onclick="editVaga('${filme.id}')" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">editar</button>
-            <button type="button" onclick="deleteVaga('${filme.id}')" class="btn btn-outline-danger">excluir</button>
+            <button onclick="editarFilmes('${filme._id}')" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">editar</button>
+            <button onclick="deleteFilmes('${filme._id}')" class="btn btn-outline-danger">excluir</button>
           </div>
 
         </div>
@@ -90,9 +90,9 @@ const createFilme = async (filme) => {
 
 };
 
-const putFilme = async (filme,id) => {
+const putFilme = async (filme,_id) => {
 
-  const req = new Request(`${apiURL}/editar/${id}`,{
+  const req = new Request(`${apiURL}/editar/${_id}`,{
     method: "PUT",
     body: JSON.stringify(filme),
     headers: new Headers({
@@ -104,14 +104,14 @@ const putFilme = async (filme,id) => {
 
   const result = await res.json();
   alert(result.message);
-  edition: false;
-  idEdition: 0;
+  edition = false;
+  idEdition = 0;
   getFilmes();
 
 };
 
-const deleteFilmes = async (id) => {
-  const req = new Request(`${apiURL}/deletar/${id}`, {
+const deleteFilmes = async (_id) => {
+  const req = new Request(`${apiURL}/deletar/${_id}`, {
     method: "DELETE",
   });
 
@@ -123,16 +123,16 @@ const deleteFilmes = async (id) => {
   getFilmes();
 };
 
-const getFilmeById = async (id) => {
-  const res = await fetch(`${apiURL}/${id}`);
+const getFilmeById = async (_id) => {
+  const res = await fetch(`${apiURL}/${_id}`);
   return await res.json();
 };
 
-const editarFilmes = async (id) => {
+const editarFilmes = async (_id) => {
   edition = true;
-  idEdition = id;
+  idEdition = _id;
 
-  const filme = await getVagasById(id);
+  const filme = await getFilmesById(_id);
 
   nome.value = filme.nome;
   imgURL.value = filme.imgURL;
