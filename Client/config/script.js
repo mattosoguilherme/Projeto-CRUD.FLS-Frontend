@@ -59,7 +59,7 @@ const submitForm = async (event) => {
     nome: nome.value,
     imgURL: imgURL.value,
     genero: genero.value,
-    nota: parseInt(nota.value)
+    nota: parseInt(nota.value),
   };
 
   if (edition) {
@@ -78,8 +78,8 @@ const createFilme = async (filme) => {
     body: JSON.stringify(filme),
     headers: new Headers({
       "Content-Type": "application/json",
-    })
-  })
+    }),
+  });
 
   const res = await fetch(req);
   const result = await res.json();
@@ -87,18 +87,16 @@ const createFilme = async (filme) => {
   alert(result.message);
 
   getFilmes();
-
 };
 
-const putFilme = async (filme,_id) => {
-
-  const req = new Request(`${apiURL}/editar/${_id}`,{
+const putFilme = async (filme, _id) => {
+  const req = new Request(`${apiURL}/editar/${_id}`, {
     method: "PUT",
     body: JSON.stringify(filme),
     headers: new Headers({
-      'Content-Type':'application/json'
-    })
-  })
+      "Content-Type": "application/json",
+    }),
+  });
 
   const res = await fetch(req);
 
@@ -107,7 +105,6 @@ const putFilme = async (filme,_id) => {
   edition = false;
   idEdition = 0;
   getFilmes();
-
 };
 
 const deleteFilmes = async (_id) => {
@@ -138,7 +135,7 @@ const editarFilmes = async (_id) => {
   imgURL.value = filme.imgURL;
   genero.value = filme.genero;
   nota.value = filme.nota;
-}
+};
 
 const limparCampos = () => {
   nome.value = "";
