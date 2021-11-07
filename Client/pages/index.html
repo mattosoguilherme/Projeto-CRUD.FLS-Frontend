@@ -20,7 +20,7 @@
                 <a class="navbar-brand" href="#">Mindika Filmes</a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Cadastrar Novo Filme
+                    Indicar Novo Filme
                   </button>
 
                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -32,31 +32,26 @@
                         </div>
                         <div class="modal-body">
 
-                          <form class="row g-3 needs-validation" novalidate>
+                          <form onsubmit="submitForm(event)" class="row g-3 needs-validation" novalidate>
 
                             <div class="form-floating mb-3">
-                              <input type="text" class="form-control" id="validationTooltip01" placeholder="digite aqui..." required>
+                              <input type="text" class="form-control" name="nome" id="nome" placeholder="digite aqui..." required>
                               <label for="floatingInput">Nome</label>
 
-                              <div class="valid-tooltip">
-                                Looks good!
-                              </div>
                             </div>
 
                             <div class="form-floating mb-3">
-                              <input type="text" class="form-control" id="validationTooltip01" placeholder="digite aqui..." >
+                              <input type="text" class="form-control" name="imgURL" id="imgURL" placeholder="digite aqui..." >
                               <label for="floatingInput">URL da Imagem</label>
 
-                              <div class="valid-tooltip">
-                                Looks good!
-                              </div>
                             </div>
 
                             <div class="form-floating mb-3">
         
-                              <select class="form-select" id="validationTooltip04" required>
+                              <select class="form-select" name="genero" id="genero" required>
                                 <option selected disabled value="">...</option>
                                 <option> Ação </option>
+                                <option> Ficção </option>
                                 <option> Comédia </option>
                                 <option> Terror </option>
                                 <option> Suspense </option>
@@ -64,25 +59,19 @@
                                 <option> Romance </option>
                               </select>
 
-                              <label for="validationTooltip04">Escolha um genêro</label>
+                              <label for="genero">Escolha um genêro</label>
 
-                              <div class="invalid-tooltip">
-                                Please select a valid state.
-                              </div>
                             </div>
 
-                            <div class="form-floating mb-3">
-                              <input type="number" class="form-control" id="validationTooltip01" placeholder="digite aqui..." required>
+                            <div class="form-floating mb-3">                 
+                              <input type="number" class="form-control" name="nota" id="nota" placeholder="digite aqui..." required>
                               <label for="floatingInput">Nota</label>
 
-                              <div class="valid-tooltip">
-                                Looks good!
-                              </div>
                             </div>
 
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button class="btn btn-success" type="submit">Submit form</button>
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                              <button class="btn btn-success" type="submit">Indicar</button>
                             </div>
                           </form>
                         </div>
@@ -92,7 +81,7 @@
 
                 </ul>
                 <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search">
+                  <input class="form-control me-2" id="pesquisar" type="search" placeholder="Pesquisar..." aria-label="Search">
                   <button class="btn btn-outline-success" type="submit">Pesquisar</button>
                 </form>
               </div>
@@ -104,24 +93,8 @@
       <h1 class="text-center mt-2">Filmes Indicados</h1>
 
       <section class="mt-4">
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="Indicados" >
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="indicados" >
 
-          <div class="card mb-3 " style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="../img/logo.png" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">nome do filme</h5>
-                  <span class="badge bg-dark"> genêro do Filme</span>
-                  <p class="card-text">NOTA: <span class="badge bg-dark">10</span></p>
-                  <button type="button" class="btn btn-outline-dark">editar</button>
-                  <button type="button" class="btn btn-outline-danger">excluir</button>
-                </div>
-              </div>
-            </div>
-          </div>
 
         </div>
       </section>      
