@@ -1,5 +1,3 @@
 # Projeto-CRUD.FLS-Frontend
-<h3>Back-end</h3><p>Como o nome sugere, o desenvolvedor back-end trabalha na parte de “trás” da aplicação.
-Normalmente é responsável por fazer a conexão com servidor para o banco de dados.
-Em um aplicativo da web, este desenvolvedor, não toca a parte visual do aplicativo.<p/>
+<h3>Front-end</h3><p>O desenvolvimento front-end da web é o desenvolvimento da interface gráfica do usuário de um site, por meio do uso de HTML, CSS e JavaScript, para que os usuários possam visualizar e interagir com aquele site<p/>
 
